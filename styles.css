@@ -612,7 +612,6 @@ body {
     gap: 6px;
     margin-top: 2px;
     width: 100%;
-    align-items: center;
 }
 
 .name-input,
@@ -761,6 +760,7 @@ body {
     .input-form-container {
         flex-direction: row;
         margin-top: 5px;
+        align-items: center;
     }
 
     .start-questions-container button:nth-child(1) {
