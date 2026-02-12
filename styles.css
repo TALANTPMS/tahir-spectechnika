@@ -906,6 +906,39 @@ body {
         padding: 0 15px;
     }
 
+    .hero {
+        width: 399px;
+        top: 52px;
+        left: 520px;
+    }
+
+    .main-section__inner {
+        padding: 125px 0 58px 0;
+    }
+
+    .main-logo {
+        width: 164;
+    }
+
+    .payment {
+        font-size: 32px;
+    }
+
+    .header .phone-icon {
+        width: 14px;
+        padding-top: 3px;
+    }
+
+    .phone-number {
+        font-size: 15px;
+    }
+
+    .connection-button {
+        font-size: 13px;
+        width: 140px;
+        height: 36px;
+    }
+
     .header {
         padding: 25px 0;
     }
@@ -915,7 +948,7 @@ body {
     }
 
     .description {
-        font-size: 16px;
+        font-size: 12px;
     }
 
     .phone {
@@ -927,7 +960,8 @@ body {
     }
 
     .main-title {
-        font-size: 32px;
+        font-size: 38px;
+        margin-bottom: 26px;
     }
 
     .title-description {
@@ -935,7 +969,7 @@ body {
     }
 
     .subtitle {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .subtitle-description {
