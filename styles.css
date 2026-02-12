@@ -250,6 +250,7 @@ body {
     background-color: #fff;
     border-radius: 50%;
     position: relative;
+    background-color: #EBF2FF;;
 }
 
 .avatar-img {
@@ -994,7 +995,7 @@ body {
 
 
     .chat-input-area {
-        padding: 20px;
+        padding-top: 20px;
     }
 
     .chat-input {
@@ -1081,16 +1082,57 @@ body {
         max-width: 1200px;
     }
 
-    .header {
-        padding: 30px 0;
+    .payment {
+        font-size: 42px;
     }
 
-    .descriptor {
-        font-size: 26px;
+    .text-content {
+        margin-bottom: 90px;
+    }
+
+    .connection-button {
+        width: 173px;
+        height: 43px;
+        font-size: 16px;
+    }
+
+    .header-logo {
+        gap: 10px;
+    }
+
+    .main-logo {
+        width: 208px;
+    }
+
+    .header-right {
+        gap: 20px;
+    }
+
+    .connection-link {
+        gap: 8px;
+    }
+
+    .header .phone-icon {
+        width: 17px;
+        padding-top: 5px;
+    }
+
+    .phone-number {
+        font-size: 18px;
+    }
+
+    .header {
+        padding: 36px 0;
+    }
+
+    .hero {
+        width: 478px;
+        top: 66px;
+        left: 670px;
     }
 
     .description {
-        font-size: 17px;
+        font-size: 15px;
     }
 
     .phone {
@@ -1102,7 +1144,8 @@ body {
     }
 
     .main-title {
-        font-size: 36px;
+        font-size: 48px;
+        margin-bottom: 36px;
     }
 
     .title-description {
@@ -1110,7 +1153,7 @@ body {
     }
 
     .subtitle {
-        font-size: 26px;
+        font-size: 28px;
     }
 
     .subtitle-description {
@@ -1119,6 +1162,7 @@ body {
 
     .chat-window {
         min-height: 550px;
+        gap: 20px;
     }
 
     .avatar-placeholder {
@@ -1134,7 +1178,7 @@ body {
 
 
     .chat-input-area {
-        padding: 25px;
+        padding-top: 25px;
     }
 
     .chat-input {
