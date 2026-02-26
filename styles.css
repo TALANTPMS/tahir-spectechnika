@@ -145,7 +145,7 @@ body {
 
 .connection-button {
     font-family: "Montserrat-SemiBold", sans-serif;
-    background-color: #D9712A;
+    background-color: #E56E21;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -204,6 +204,7 @@ body {
     margin-bottom: 20px;
     line-height: 120%;
     text-align: center;
+    color: #161C2C;
 }
 
 .title-description {
@@ -220,6 +221,15 @@ body {
     font-size: 13px;
     line-height: 130%;
     text-align: center;
+    color: #161C2C;
+}
+
+.under_subtitle {
+    font-family: "Montserrat-SemiBold";
+    font-size: 9px;
+    line-height: 130%;
+    text-align: center;
+    color: #161C2C;
 }
 
 .subtitle-description {
@@ -1026,13 +1036,13 @@ body {
 .price-range {
     font-family: "Montserrat-Bold", sans-serif;
     font-style: italic;
-    color: #903b00
+    color: #E56E21
 }
 
 .warrant {
     font-family: "Montserrat-Bold", sans-serif;
     font-style: italic;
-    color: #903b00
+    color: #E56E21
 }
 
 .payment {
@@ -1253,6 +1263,11 @@ body {
 
     .subtitle {
         font-size: 16px;
+        text-align: left;
+    }
+
+    .under_subtitle{
+        font-size: 11px;
         text-align: left;
     }
 
@@ -1603,6 +1618,10 @@ body {
         font-size: 22px;
     }
 
+    .under_subtitle{
+        font-size: 14px;
+    }
+
     .subtitle-description {
         font-size: 16px;
     }
@@ -1891,6 +1910,10 @@ body {
 
     .subtitle {
         font-size: 28px;
+    }
+
+    .under_subtitle{
+        font-size: 20px;
     }
 
     .subtitle-description {
