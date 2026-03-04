@@ -1019,16 +1019,16 @@ body {
 }
 
 .cookie-link {
-    color: #D9712A;
+    color: #587560;
     text-decoration: underline;
 }
 
 .cookie-link:hover {
-    color: #b85e1f;
+    color: #587560;
 }
 
 .cookie-accept-btn {
-    background-color: #D9712A;
+    background-color: #587560;
     color: #fff;
     border: none;
     border-radius: 16px;
