@@ -17,6 +17,8 @@ let chatWindowMinHeight = 0;
 let chatWindowBaseMinHeight = 400;
 let pageScrollAnimationFrameId = null;
 let pageScrollTargetY = 0;
+let isUserNearChatBottom = true;
+let initialChatAutoScrollDone = false;
 
 // Рингтон для сообщений
 const ringtone = new Audio('sounds/ringtone.mp3');
@@ -206,6 +208,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const hasChatUI = chatForm && chatInput && chatMessages && sendBtn && chatWindow;
     if (!hasChatUI) return;
     initializeChatSizingState();
+    initChatScrollBehavior();
 
     chatForm.addEventListener('submit', handleSubmit);
 
@@ -215,6 +218,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Инициализируем диалог
     await initializeDialog();
 });
+
+function initChatScrollBehavior() {
+    if (!chatWindow) return;
+
+    const updateFlag = () => {
+        const chatBottomY = chatWindow.getBoundingClientRect().bottom + window.scrollY;
+        const viewportBottomY = window.scrollY + window.innerHeight;
+        const distanceFromBottom = chatBottomY - viewportBottomY;
+
+        // Считаем, что пользователь "рядом с низом чата",
+        // если до него осталось не больше 80px.
+        isUserNearChatBottom = distanceFromBottom <= 80;
+    };
+
+    window.addEventListener('scroll', updateFlag, { passive: true });
+    updateFlag();
+}
 
 function initializeChatSizingState() {
     if (!chatWindow) return;
@@ -1134,45 +1154,56 @@ function getCurrentTime() {
 }
 
 // Прокрутка вниз
-// function scrollToBottom() {
-//     scrollPageToChatBottom();
-// }
+function scrollToBottom(force = false) {
+    // Первый автоскролл — всегда выполняем,
+    // чтобы при открытии страницы показать окно чата.
+    if (!initialChatAutoScrollDone) {
+        initialChatAutoScrollDone = true;
+        scrollPageToChatBottom();
+        return;
+    }
 
-// function scrollPageToChatBottom() {
-//     if (!chatWindow) return;
+    // Дальше скроллим только если пользователь сам "у низа"
+    // или явно передан флаг force.
+    if (!isUserNearChatBottom && !force) return;
+    scrollPageToChatBottom();
+}
 
-//     const chatBottomY = chatWindow.getBoundingClientRect().bottom + window.scrollY;
-//     const desiredY = Math.max(0, chatBottomY - window.innerHeight + 16);
-//     pageScrollTargetY = desiredY;
+function scrollPageToChatBottom() {
+    if (!chatWindow) return;
 
-//     if (pageScrollAnimationFrameId) return;
+    const chatBottomY = chatWindow.getBoundingClientRect().bottom + window.scrollY;
+    const desiredY = Math.max(0, chatBottomY - window.innerHeight + 16);
+    pageScrollTargetY = desiredY;
 
-//     const step = () => {
-//         const current = window.scrollY;
-//         const distance = pageScrollTargetY - current;
+    if (pageScrollAnimationFrameId) return;
 
-//         if (Math.abs(distance) < 0.8) {
-//             window.scrollTo(0, pageScrollTargetY);
-//             pageScrollAnimationFrameId = null;
-//             return;
-//         }
+    const step = () => {
+        const current = window.scrollY;
+        const distance = pageScrollTargetY - current;
 
-//         const isLongScroll = Math.abs(distance) > 520;
-//         const factor = isLongScroll ? 0.16 : 0.12;
-//         const minStep = isLongScroll ? 1.2 : 0.6;
-//         const rawDelta = distance * factor;
-//         const delta = Math.sign(distance) * Math.max(minStep, Math.abs(rawDelta));
-//         const next = current + delta;
+        if (Math.abs(distance) < 0.8) {
+            window.scrollTo(0, pageScrollTargetY);
+            pageScrollAnimationFrameId = null;
+            return;
+        }
 
-//         window.scrollTo(0, distance > 0
-//             ? Math.min(next, pageScrollTargetY)
-//             : Math.max(next, pageScrollTargetY));
+        const isLongScroll = Math.abs(distance) > 520;
+        const factor = isLongScroll ? 0.16 : 0.12;
+        const minStep = isLongScroll ? 1.2 : 0.6;
+        const rawDelta = distance * factor;
+        const delta = Math.sign(distance) * Math.max(minStep, Math.abs(rawDelta));
+        const next = current + delta;
 
-//         pageScrollAnimationFrameId = requestAnimationFrame(step);
-//     };
+        window.scrollTo(0, distance > 0
+            ? Math.min(next, pageScrollTargetY)
+            : Math.max(next, pageScrollTargetY));
 
-//     pageScrollAnimationFrameId = requestAnimationFrame(step);
-// }
+        pageScrollAnimationFrameId = requestAnimationFrame(step);
+    };
+
+    pageScrollAnimationFrameId = requestAnimationFrame(step);
+}
 
 // Автоматическое увеличение высоты окна чата
 function adjustChatWindowHeight() {
