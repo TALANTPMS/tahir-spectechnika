@@ -173,7 +173,7 @@ body {
 
 .connection-button {
     font-family: "Montserrat-SemiBold", sans-serif;
-    background-color: #F08C34;
+    background-color: #FFD317;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -412,7 +412,7 @@ body {
 }
 
 .message-user .message-content {
-    background-color: #F08C34;
+    background-color: #FFD317;
     color: white;
     border-bottom-right-radius: 4px;
     font-family: "Montserrat-Medium";
@@ -1027,16 +1027,16 @@ body {
 }
 
 .cookie-link {
-    color: #F08C34;
+    color: #FFD317;
     text-decoration: underline;
 }
 
 .cookie-link:hover {
-    color: #F08C34;
+    color: #FFD317;
 }
 
 .cookie-accept-btn {
-    background-color: #F08C34;
+    background-color: #FFD317;
     color: #fff;
     border: none;
     border-radius: 16px;
@@ -1051,7 +1051,7 @@ body {
 }
 
 .cookie-accept-btn:hover {
-    background-color: #f1c49c;;
+    background-color: #ebd469;
 }
 
 .cookie-accept-btn:active {
@@ -1151,13 +1151,13 @@ body {
 .price-range {
     font-family: "Montserrat-Bold", sans-serif;
     font-style: italic;
-    color: #F08C34
+    color: #FFD317
 }
 
 .warrant {
     font-family: "Montserrat-Bold", sans-serif;
     font-style: italic;
-    color: #F08C34
+    color: #FFD317
 }
 
 .payment {
