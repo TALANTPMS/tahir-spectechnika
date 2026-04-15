@@ -93,9 +93,10 @@ body {
 
 .header-content {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 
 .main-section__inner {
@@ -103,13 +104,14 @@ body {
 }
 
 .header-left {
-    text-align: left;
+    text-align: center;
 }
 
 .header-logo {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 4px;
 }
 
@@ -169,6 +171,7 @@ body {
     flex-direction: column;
     gap: 6px;
     align-items: center;
+    justify-content: center;
 }
 
 .connection-button {
@@ -1434,6 +1437,16 @@ body {
     .connection-link {
         display: flex;
     
+    }
+
+    .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    .header-left {
+        text-align: left;
     }
 
     .text-content {
