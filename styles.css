@@ -247,6 +247,8 @@ body {
 
 .main-section {
    display: flex; 
+   flex-direction: column;
+   align-items: center;
 }
 
 .main-title {
@@ -1296,6 +1298,11 @@ body {
 
 /* Media Query: min-width 768px */
 @media (min-width: 768px) {
+    .main-section {
+        flex-direction: row;
+        align-items: initial;
+    }
+    
     .wrapper {
         max-width: 720px;
         margin: 0 auto;
